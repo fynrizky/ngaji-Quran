@@ -2,7 +2,9 @@
 import * as React from 'react'
 import Link from 'next/link'
 import useSWR from 'swr'
+import { IconSearch } from '@tabler/icons-react'
 import { ListSurat } from '@/interfaces'
+import ScrollToTop from '@/components/ScrollToTop'
 // import { useDispatch } from 'react-redux'
 
 export default function Page () {
@@ -42,6 +44,7 @@ export default function Page () {
   return (
     <div className="max-w-[1100px] m-auto">
       <div className="relative bg-white w-full h-[40px] sm:h-[50px] flex items-center px-[13px] sm:px-[20px] rounded-lg dark:bg-slate-700">
+      <IconSearch className="absolute text-[var(--primary)] w-5 h-5 sm:w-6 sm:h-6" />
           <input
           value={search}
           onChange={e => setSearch(e.target.value)}
@@ -52,7 +55,8 @@ export default function Page () {
       </div>
         <div className="flex flex-wrap gap-[8px] sm:gap-[15px] justify-center sm:mt-5 mt-3">
         {searchResult.map((data, index) => (
-          <Link href={`/${data.nomor}`} key={index} 
+          <Link 
+          href={`/${data.nomor}`} key={index} 
           className="w-[145px] h-[60px] sm:w-[250px] sm:h-[84px] border border-white hover:border-[var(--primary)] hover:shadow-lg rounded-lg bg-white transition-all cursor-pointer px-[10px] sm:px-[27px] flex items-center gap-2 sm:gap-3 font-Quicksand dark:bg-slate-700 dark:border-none">
               <span className="w-[20px] h-[20px] sm:w-[30px] sm:h-[30px] grid place-items-center bg-[var(--primary)] rounded-full text-white font-semibold self-start mt-4 sm:mt-6 text-[10px] sm:text-[14px]">
               {data.nomor}
@@ -68,6 +72,7 @@ export default function Page () {
             </Link>
         ))}
       </div>
+      <ScrollToTop />
     </div>
   )
 }

@@ -6,6 +6,10 @@ import { IconMoonFilled, IconSunFilled } from '@tabler/icons-react'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+//Bagaimana Redux bekerja ?
+// dengan useDispatch kita dapat melakukan panggilan actions dari folder redux/actions dan mengakses store(reducer) 
+//dimana direducer state kita di kelola dan kemudian jika ada perubahan state  maka akan memicu perubahan pada komponen2 yang menggunakan useSelector u/ mendapatkan nilai 
+
 function ToggleDarkMode() {
   const dispatch = useDispatch()
   const { mode } = useSelector((state: RootState) => state.theme)

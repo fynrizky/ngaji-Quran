@@ -51,7 +51,7 @@ const initState: StateStore = {
           bookmark: null,
         }
       case ActionType.RESTORE:
-        const getData = localStorage.getItem('store')
+        // const getData = localStorage.getItem('store')
         // if (getData) {
         //   const result = Decrypt(getData)
         //   return result

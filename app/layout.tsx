@@ -6,6 +6,8 @@ import { Provider } from 'react-redux'
 import store from '@/redux'
 
 // const inter = Inter({ subsets: ['latin'] })
+ 
+//menggunakan Provider untuk mengakse store(reducer) saat menggunakan useDispatch
 
 export default function RootLayout({
   children,
@@ -15,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
      <head>
-        <title>ngajiQur'an</title>
+        <title>ngaji-Quran</title>
         <meta name="description" content="Create By Rizky Fiyannur" />
         <meta name="google" content="notranslate" />
       </head>

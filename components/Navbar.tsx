@@ -5,6 +5,9 @@ import { useDispatch } from 'react-redux'
 import { setTheme } from '@/redux/actions/theme'
 import ToggleDarkMode from './ToggleDarkMode'
 import ProgressBar from './ProgressBar'
+import Image from 'next/image'
+import LOGO from '../assets/logo_ku.png'
+
 
 const Navbar = () => {
   const [scrollY, setScrollY] = React.useState<number>(0)
@@ -36,7 +39,13 @@ const Navbar = () => {
           href="/"
           onClick={() => window.scrollTo(0, 0)}
           className="flex items-center gap-2 sm:gap-4">
-          {/*  */}
+          <Image
+            src={LOGO}
+            width={70}
+            height={70}
+            alt="logo alquran ku"
+            className="cursor-pointer"
+          />
           <h1 className="text-[22px] sm:text-[25px] font-bold italic text-[var(--primary)] drop-shadow-md ">
            ngaji-Quran
           </h1>

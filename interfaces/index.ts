@@ -1,5 +1,40 @@
 import ActionType from '@/redux/actionType'
 
+export interface detailSurat {
+  nomor: number
+  nama: string
+  namaLatin: string
+  jumlahAyat: number
+  tempatTurun: string
+  arti: string
+}
+
+export interface ayatSurat {
+  nomorAyat: number
+  teksArab: string
+  teksLatin: string
+  teksIndonesia: string
+  audio: Audio
+}
+
+export interface ayatTafsir {
+  ayat: number
+  teks: string
+}
+
+export type Audio = {
+  ['01']: string
+  ['02']: string
+  ['03']: string
+  ['04']: string
+  ['05']: string
+}
+
+export interface QueryParamsAyat {
+  ayat?: string
+}
+
+
 export interface ListSurat {
     nomor: number
     namaLatin: string
@@ -31,10 +66,10 @@ export interface StateModal {
     message: string | null
   }
 
-// export interface StateStore {
-//     like: Like[]
-//     bookmark: Like | null
-//   }
+export interface StateStore {
+    like: Like[]
+    bookmark: Like | null
+  }
 
 export interface StateTheme {
     mode: string
@@ -51,6 +86,6 @@ export interface StateTheme {
 
   export interface RootState {
     modal: StateModal
-    // store: StateStore
+    store: StateStore
     theme: StateTheme
   }

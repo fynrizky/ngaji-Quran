@@ -1,10 +1,10 @@
 import { combineReducers } from '@reduxjs/toolkit'
-// import reducerModal from './modal'
+import reducerModal from './modal'
 // import reduceStore from './store'
 import reducerTheme from './theme'
 
 const rootReducer = combineReducers({
-//   modal: reducerModal,
+  modal: reducerModal,
   // store: reduceStore,
   theme: reducerTheme,
 })

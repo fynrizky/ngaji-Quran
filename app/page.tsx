@@ -5,10 +5,11 @@ import useSWR from 'swr'
 import { IconSearch } from '@tabler/icons-react'
 import { ListSurat } from '@/interfaces'
 import ScrollToTop from '@/components/ScrollToTop'
-// import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { modalLoading, unsetModal } from '@/redux/actions/modal'
 
 export default function Page () {
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const [search, setSearch] = React.useState<string>('')
   const [searchResult, setSearchResult] = React.useState<ListSurat[]>([])
 
@@ -28,6 +29,11 @@ export default function Page () {
       setSearchResult(listSurat || [])
     }
   }, [listSurat, search])
+
+  React.useEffect(() => {
+    dispatch(unsetModal())
+  }, [dispatch])
+
 
   function filterSurat(search: string, suratList: ListSurat[]) {
     const filteredList = suratList.filter(
@@ -55,8 +61,13 @@ export default function Page () {
       </div>
         <div className="flex flex-wrap gap-[8px] sm:gap-[15px] justify-center sm:mt-5 mt-3">
         {searchResult.map((data, index) => (
-          <Link 
-          href={`/${data.nomor}`} key={index} 
+          <Link
+          onClick={()=> {
+            window.scrollTo(0, 0)
+            dispatch(modalLoading(`Membuka Surat ${data.namaLatin}`))
+          }} 
+          href={`/${data.nomor}`} 
+          key={index} 
           className="w-[145px] h-[60px] sm:w-[250px] sm:h-[84px] border border-white hover:border-[var(--primary)] hover:shadow-lg rounded-lg bg-white transition-all cursor-pointer px-[10px] sm:px-[27px] flex items-center gap-2 sm:gap-3 font-Quicksand dark:bg-slate-700 dark:border-none">
               <span className="w-[20px] h-[20px] sm:w-[30px] sm:h-[30px] grid place-items-center bg-[var(--primary)] rounded-full text-white font-semibold self-start mt-4 sm:mt-6 text-[10px] sm:text-[14px]">
               {data.nomor}

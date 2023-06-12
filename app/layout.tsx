@@ -1,6 +1,8 @@
 'use client'
-import Navbar from '@/components/Navbar'
+import * as React from 'react'
 import './globals.css'
+import Navbar from '@/components/Navbar'
+import  Modal  from '@/components/Modal'
 // import { Inter } from 'next/font/google'
 import { Provider } from 'react-redux'
 import store from '@/redux'
@@ -24,6 +26,7 @@ export default function RootLayout({
       <Provider store={store}>
         <body className="bg-gray-100 dark:bg-slate-800">
           <Navbar />
+          <Modal />
           <div className="py-2 px-2 sm:py-5 sm:px-5">{children}</div>
         </body>
       </Provider>

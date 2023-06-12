@@ -6,21 +6,36 @@ export interface ListSurat {
     arti: string
   }
 
-  export interface ActionStore {
-    type: typeof ActionType.ADD_LIKE
-    payload: Like
-  }
+// export interface ActionStore {
+//     type: typeof ActionType.ADD_LIKE
+//     payload: Like
+//   }
+
 export interface ActionTheme {
     type: typeof ActionType.SET_THEME
     payload: {
       mode: string
     }
   }
-  
-export interface StateStore {
-    like: Like[]
-    bookmark: Like | null
+
+  export interface ActionModal {
+    type: typeof ActionType.LOADING_OPEN
+    payload: {
+      message: string
+    }
   }
+  
+export interface StateModal {
+    isOpen: boolean
+    type: string | null
+    message: string | null
+  }
+
+// export interface StateStore {
+//     like: Like[]
+//     bookmark: Like | null
+//   }
+
 export interface StateTheme {
     mode: string
   }
@@ -35,7 +50,7 @@ export interface StateTheme {
   }
 
   export interface RootState {
-    // modal: StateModal
+    modal: StateModal
     // store: StateStore
     theme: StateTheme
   }

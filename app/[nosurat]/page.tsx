@@ -231,7 +231,7 @@ export default function Page({ params }: { params: { nosurat: string } }) {
               onClick={() => {
                 window.scrollTo(0, 0)
                 dispatch(
-                  modalLoading(`proses membuka tafsir ${detail?.namaLatin}`)
+                  modalLoading(`Membuka tafsir ${detail?.namaLatin}`)
                 )
               }}>
               <p>Tafsir</p>

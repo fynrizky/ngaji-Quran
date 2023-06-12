@@ -41,10 +41,10 @@ export interface ListSurat {
     arti: string
   }
 
-// export interface ActionStore {
-//     type: typeof ActionType.ADD_LIKE
-//     payload: Like
-//   }
+export interface ActionStore {
+    type: typeof ActionType.ADD_LIKE
+    payload: Like
+  }
 
 export interface ActionTheme {
     type: typeof ActionType.SET_THEME
@@ -86,6 +86,6 @@ export interface StateTheme {
 
   export interface RootState {
     modal: StateModal
-    store: StateStore
+    // store: StateStore
     theme: StateTheme
   }

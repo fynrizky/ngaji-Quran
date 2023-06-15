@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { Menu, Transition } from '@headlessui/react'
 import { IconHeartFilled, IconBookmark } from '@tabler/icons-react'
 import { Fragment } from 'react'
-import { modalLoading } from '@/redux/actions/modal'
+import { modalLoading, unsetModal } from '@/redux/actions/modal'
 import { useDispatch, useSelector } from 'react-redux'
 import { IconCategory2 } from '@tabler/icons-react'
 import Link from 'next/link'
@@ -15,6 +15,10 @@ export default function ButtonNav() {
   const dispatch = useDispatch()
   const { bookmark } = useSelector((state: RootState) => state.store)
   const route = useRouter()
+
+  React.useEffect(() => {
+    dispatch(unsetModal())
+  }, [dispatch])
 
   return (
     <Menu as="div" className="relative inline-block text-left">

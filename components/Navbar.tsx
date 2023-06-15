@@ -1,15 +1,20 @@
 'use client'
 import * as React from 'react'
 import Link from 'next/link'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setTheme } from '@/redux/actions/theme'
 import ToggleDarkMode from './ToggleDarkMode'
 import ProgressBar from './ProgressBar'
 import Image from 'next/image'
 import LOGO from '../assets/logo_ku.png'
+import ButtonNav from './ButtonNav'
+import { RootState } from '@/interfaces'
+import SaveStore from '@/services/SaveStore'
+import { restore } from '@/redux/actions/store'
 
 
 const Navbar = () => {
+  const stores = useSelector((state: RootState) => state.store)
   const [scrollY, setScrollY] = React.useState<number>(0)
   const dispatch = useDispatch()
 
@@ -18,6 +23,7 @@ const Navbar = () => {
       setScrollY(window.scrollY)
     }
 
+    dispatch(restore())
     dispatch(setTheme(localStorage.getItem('theme') as string))
 
     window.addEventListener('scroll', handleScroll)
@@ -26,6 +32,10 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [dispatch])
+
+  React.useEffect(()=> {
+    SaveStore(stores)
+  },[stores]) 
 
   return (
     <nav
@@ -52,6 +62,7 @@ const Navbar = () => {
         </Link>
         <div className="flex items-center gap-3 sm:gap-5">
           <ToggleDarkMode />
+          <ButtonNav />
         </div>
       </div>
     </nav>

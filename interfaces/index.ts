@@ -86,6 +86,6 @@ export interface StateTheme {
 
   export interface RootState {
     modal: StateModal
-    // store: StateStore
+    store: StateStore
     theme: StateTheme
   }

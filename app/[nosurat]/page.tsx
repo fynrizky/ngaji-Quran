@@ -1,30 +1,30 @@
 'use client'
 import * as React from 'react'
 import useSWR from 'swr'
-import { Audio, ayatSurat, detailSurat } from '@/interfaces'
+import { RootState, Audio, ayatSurat, detailSurat } from '@/interfaces'
 import {
-//   IconBookmark,
+  IconBookmark,
   IconChevronRight,
   IconExternalLink,
   IconHeadphones,
-//   IconHeart,
+  IconHeart,
   IconLink,
-//   IconShare,
+  IconShare,
 } from '@tabler/icons-react'
 import Link from 'next/link'
 import ScrollToTop from '@/components/ScrollToTop'
-import { useDispatch } from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import { unsetModal, modalLoading } from '@/redux/actions/modal'
-// import PlayingAnimation from '@/components/PlayingAnimation'
-// import LoadingCircleAnimation from '@/components/LoadingCircleAnimation'
-// import {
-//   addBookmark,
-//   addLike,
-//   removeBookmark,
-//   removeLike,
-// } from '@/redux/actions/store'
+import {
+  addLike,
+  removeLike,
+  addBookmark,
+  removeBookmark,
+} from '@/redux/actions/store'
 import { useRouter } from 'next/navigation'
-// import { WhatsappShareButton } from 'react-share'
+import { WhatsappShareButton } from 'react-share'
+import PlayingAnimate from '@/components/PlayingAnimate'
+import LoadingCircleAnimate from '@/components/LoadingCircleAnimate'
 
 async function fetchData(nosurat: string) {
   const res = await fetch(`https://equran.id/api/v2${nosurat}`)
@@ -33,7 +33,7 @@ async function fetchData(nosurat: string) {
 }
 
 export default function Page({ params }: { params: { nosurat: string } }) {
-//   const { like, bookmark } = useSelector((state: RootState) => state.store)
+  const { like, bookmark } = useSelector((state: RootState) => state.store)
   const { data, error } = useSWR(`/surat/${params.nosurat}`, fetchData)
   const [detail, setDetail] = React.useState<detailSurat | undefined>(undefined)
   const [ayats, setAyats] = React.useState<ayatSurat[]>([])
@@ -167,30 +167,30 @@ export default function Page({ params }: { params: { nosurat: string } }) {
     }
   }
 
-//   const handleCopyLink = (ayat: number) => {
-//     const link = `${window.location.origin}/${params.nosurat}?ayat=${ayat}`
-//     navigator.clipboard.writeText(link)
-//     alert('Link copied successfully')
-//   }
+  const handleCopyLink = (ayat: number) => {
+    const link = `${window.location.origin}/${params.nosurat}?ayat=${ayat}`
+    navigator.clipboard.writeText(link)
+    alert('Link copied successfully')
+  }
 
-//     const messageShare = (
-//     ayat: number,
-//     teksArab: string,
-//     teksIndonesia: string
-//   ): string => {
-//     return `*Assalamualaikum Izin Share*
-// Allah SWT berfirman:
+  const messageShare = (
+    ayat: number,
+    teksArab: string,
+    teksIndonesia: string
+  ): string => {
+    return `*Assalamualaikum Izin Share*
+    Allah SWT berfirman:
 
-// ${teksArab}
+    ${teksArab}
 
-// Yang Artinya :
-// ${teksIndonesia}
+    Yang -Artinya :
+    ${teksIndonesia}
 
-// _(Qs. ${detail?.namaLatin} ${params.nosurat}: Ayat ${ayat})_
+    _(Qs. ${detail?.namaLatin} ${params.nosurat}: Ayat ${ayat})_
 
-// Link Website :
-// ${window.location.origin}/${params.nosurat}?ayat=${ayat}`
-//   }
+    Link -Website :
+    ${window.location.origin}/${params.nosurat}?ayat=${ayat}`
+  }
 
   if (!data) return <p>Loading...</p>
   return (
@@ -274,38 +274,64 @@ export default function Page({ params }: { params: { nosurat: string } }) {
               {res.teksIndonesia}
             </p>
             <div className="flex pt-[15px] px-[15px] mt-[15px] gap-[25px] sm:gap-[40px] flex-wrap border-t-[1.5px] border-t-[#f4f4f4] text-[#A5BCC6] relative">
-              {/* {like.filter(
+              {like.filter(
                 data =>
                   data.nomorSurat === detail?.nomor &&
                   data.nomorAyat === res.nomorAyat
               ).length > 0 ? (
                 <IconHeart
-                  className="cursor-pointer fill-red-600 text-red-600"/>
+                  className="cursor-pointer fill-red-600 text-red-600"
+                  onClick={() =>
+                    dispatch(
+                      removeLike({
+                        nomorSurat: detail?.nomor,
+                        nomorAyat: res.nomorAyat,
+                      })
+                    )
+                  }
+                />
               ) : (
                 <IconHeart
                   className="cursor-pointer sm:hover:text-[var(--primary)]"
+                  onClick={() =>
+                    dispatch(
+                      addLike({
+                        nomorSurat: detail?.nomor,
+                        nomorAyat: res.nomorAyat,
+                        namaSurat: detail?.namaLatin,
+                        url: `/${params.nosurat}?ayat=${res.nomorAyat}`,
+                        timestamp: Math.floor(new Date().getTime()),
+                      })
+                    )
+                  }
                 />
-              )} */}
+              )}
 
-              {/* {bookmark?.nomorSurat === detail?.nomor &&
+              {bookmark?.nomorSurat === detail?.nomor &&
               bookmark?.nomorAyat === res.nomorAyat ? (
                 <IconBookmark
-                  className="cursor-pointer fill-[#E5A620] text-[#E5A620]"/>
+                  className="cursor-pointer fill-[#E5A620] text-[#E5A620]"
+                  onClick={() => dispatch(removeBookmark())}
+                />
               ) : (
                 <IconBookmark
-                  className="cursor-pointer sm:hover:text-[var(--primary)]"/>
-              )} */}
-
-              {/* <WhatsappShareButton
-                url={messageShare(
-                  res.nomorAyat,
-                  res.teksArab,
-                  res.teksIndonesia
-                )}>
-                <IconShare className="cursor-pointer hover:text-[var(--primary)]" />
-              </WhatsappShareButton> */}
+                  className="cursor-pointer sm:hover:text-[var(--primary)]"
+                  onClick={() =>
+                    dispatch(
+                      addBookmark({
+                        nomorSurat: detail?.nomor,
+                        nomorAyat: res.nomorAyat,
+                        namaSurat: detail?.namaLatin,
+                        url: `/${params.nosurat}?ayat=${res.nomorAyat}`,
+                        timestamp: Math.floor(new Date().getTime() / 1000),
+                      })
+                    )
+                  }
+                />
+              )}
               
               <IconLink
+                onClick={() => handleCopyLink(res.nomorAyat)}
                 className="cursor-pointer hover:text-[var(--primary)]"/>
               <IconHeadphones
                 className={`cursor-pointer sm:hover:text-[var(--primary)] ${
@@ -315,11 +341,21 @@ export default function Page({ params }: { params: { nosurat: string } }) {
                   togglePlay(res.nomorAyat)
                 }}
               />
+
+              <WhatsappShareButton
+                url={messageShare(
+                  res.nomorAyat,
+                  res.teksArab,
+                  res.teksIndonesia
+                )}>
+                <IconShare className="cursor-pointer hover:text-[var(--primary)]" />
+              </WhatsappShareButton>
+              
               {ayatPlay === res.nomorAyat ? (
                 isAudioLoading ? (
-                <>LoadingCircleAnimate...</>
+                <LoadingCircleAnimate />
                 ) : (
-                  <>Playing Animate</>
+                <PlayingAnimate />
                 )
               ) : null}
             </div>

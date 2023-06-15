@@ -1,5 +1,6 @@
 import { ActionStore, StateStore } from '@/interfaces'
 import ActionType from '../actionType'
+import Decrypt from '@/utils/Decrypt'
 
 const initState: StateStore = {
     like: [],
@@ -51,11 +52,11 @@ const initState: StateStore = {
           bookmark: null,
         }
       case ActionType.RESTORE:
-        // const getData = localStorage.getItem('store')
-        // if (getData) {
-        //   const result = Decrypt(getData)
-        //   return result
-        // }
+        const getData = localStorage.getItem('store')
+        if (getData) {
+          const result = Decrypt(getData)
+          return result
+        }
         return {
           like: [],
           bookmark: null,

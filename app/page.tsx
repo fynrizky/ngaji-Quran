@@ -7,7 +7,7 @@ import { ListSurat } from '@/interfaces'
 import ScrollToTop from '@/components/ScrollToTop'
 import { useDispatch } from 'react-redux'
 import { modalLoading, unsetModal } from '@/redux/actions/modal'
-import CardSkeleton from '@/components/skeleton/Cardskeleton'
+import CardSkeleton from '@/components/skeleton/CardSkeleton'
 
 export default function Page () {
   const dispatch = useDispatch()

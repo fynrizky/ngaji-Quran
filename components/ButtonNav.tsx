@@ -7,7 +7,7 @@ import { IconHeartFilled, IconBookmark } from '@tabler/icons-react'
 import { Fragment } from 'react'
 import { modalLoading, unsetModal } from '@/redux/actions/modal'
 import { useDispatch, useSelector } from 'react-redux'
-import { IconCategory2 } from '@tabler/icons-react'
+import { IconClover } from '@tabler/icons-react'
 import Link from 'next/link'
 import PathLocation from '@/utils/PathLoacation'
 
@@ -24,7 +24,7 @@ export default function ButtonNav() {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="text-[var(--primary)] rounded cursor-pointer bg-gray-200 dark:bg-gray-700 px-2 py-2 sm:px-3 sm:py-2">
-          <IconCategory2 className="h-5 w-5" aria-hidden="true" />
+          <IconClover className="h-5 w-5" aria-hidden="true" />
         </Menu.Button>
       </div>
       <Transition

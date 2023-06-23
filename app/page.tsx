@@ -7,6 +7,7 @@ import { ListSurat } from '@/interfaces'
 import ScrollToTop from '@/components/ScrollToTop'
 import { useDispatch } from 'react-redux'
 import { modalLoading, unsetModal } from '@/redux/actions/modal'
+import CardSkeleton from '@/components/skeleton/Cardskeleton'
 
 export default function Page () {
   const dispatch = useDispatch()
@@ -59,7 +60,10 @@ export default function Page () {
           className="w-full h-full bg-transparent outline-none pl-8 sm:pl-10 placeholder-gray-300 font-semibold placeholder:font-normal placeholder:text-[14px] sm:placeholder:text-[18px]"
         />
       </div>
-        <div className="flex flex-wrap gap-[8px] sm:gap-[15px] justify-center sm:mt-5 mt-3">
+      {!listSurat ? (
+        <CardSkeleton cards={114}/>
+      ) : (
+      <div className="flex flex-wrap gap-[8px] sm:gap-[15px] justify-center sm:mt-5 mt-3">
         {searchResult.map((data, index) => (
           <Link
           onClick={()=> {
@@ -83,6 +87,7 @@ export default function Page () {
             </Link>
         ))}
       </div>
+      )}
       <ScrollToTop />
     </div>
   )

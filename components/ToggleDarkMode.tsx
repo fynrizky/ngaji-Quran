@@ -2,7 +2,7 @@
 import { RootState } from '@/interfaces'
 import { setTheme } from '@/redux/actions/theme'
 import { Switch } from '@headlessui/react'
-import { IconMoonFilled, IconSunFilled } from '@tabler/icons-react'
+import { IconMoonStars, IconSunFilled } from '@tabler/icons-react'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -45,7 +45,7 @@ function ToggleDarkMode() {
               : 'translate-x-0 bg-gray-700'
           }
             pointer-events-none flex w-[23px] h-[23px] sm:w-[28px] sm:h-[28px] transform rounded-full shadow-lg ring-0 transition duration-200 ease-in-out text-white justify-center items-center p-1`}>
-          {isChecked ? <IconSunFilled /> : <IconMoonFilled />}
+          {isChecked ? <IconSunFilled /> : <IconMoonStars />}
         </div>
       </Switch>
     </div>

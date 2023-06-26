@@ -66,7 +66,7 @@ export default function Page({ params }: { params: { nosurat: string } }) {
       router.push('/')
     }
   }, [data, dispatch, error, router])
-
+  
   React.useEffect(() => {
     setDetail(data)
     setAyats(data?.ayat)

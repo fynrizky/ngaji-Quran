@@ -51,8 +51,8 @@ const Navbar = () => {
           className="flex items-center gap-2 sm:gap-4">
           <Image
             src={LOGO}
-            width={70}
-            height={70}
+            width={100}
+            height={100}
             alt="logo alquran ku"
             className="cursor-pointer"
           />

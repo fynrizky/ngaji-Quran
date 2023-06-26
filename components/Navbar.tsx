@@ -39,7 +39,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`h-[70px] bg-white/50 dark:bg-slate-800/70 backdrop-blur-lg sticky top-0 z-10 ${
+      className={`h-[100px] bg-white/50 dark:bg-slate-800/70 backdrop-blur-lg sticky top-0 z-10 ${
         scrollY > 100 && 'shadow-md shadow-grey-700 dark:shadow-slate-700'
       }`}>
       {/*  */}

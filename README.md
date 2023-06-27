@@ -17,7 +17,7 @@ Website ngaji-Quran adalah sebuah aplikasi mengaji al-quran berbasis web yang te
 
 <br/>
 
-## Tech Stack
+## Technology 
 
 - Menggunakan Nextjs 13.4.3
 - Menggunakan Redux

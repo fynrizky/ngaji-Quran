@@ -2,7 +2,7 @@
   <a href="https://www.indoquran.my.id">
     <img src="https://raw.githubusercontent.com/fynrizky/ngaji-Quran/master/assets/logo_ku.png" alt="Logo" width="300">
   </a>
-  <h2 style="font-size:30px;" align="center"><strong>IndoQuran</strong></h2>
+  <h2 style="font-size:30px;" align="center"><strong>ngaji-Quran</strong></h2>
   <p align="center">
     <a href="https://github.com/fynrizky/ngaji-Quran/issues">Report Bug</a>
     ·

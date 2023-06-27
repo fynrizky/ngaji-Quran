@@ -13,7 +13,7 @@
 
 ## Introduction
 
-Website ngaji-Quran adalah sebuah aplikasi mengaji al-quran berbasis web yang tersedia fitur untuk membaca, mendengarkan murotal, penanda ayat, dan share ayat Alquran ke media sosial seperti WA atau bisa juga meng-copy link dari surat...
+Website ngaji-Quran adalah sebuah aplikasi mengaji al-quran berbasis web yang tersedia fitur untuk membaca, mendengarkan murotal, penanda ayat, dan share ayat Alquran ke media sosial seperti WA atau bisa juga meng-copy link dari ayat...
 
 <br/>
 
@@ -30,12 +30,12 @@ Website ngaji-Quran adalah sebuah aplikasi mengaji al-quran berbasis web yang te
 
 - Pencarian Surat
 - Buka Ayat
-- Audio Murotal dengan 5 pilihan versi Qori/imam
+- Audio Murotal Tersedia 5 pilihan Qori/imam
 - Dark/Light Mode
 - Like ayat(no login)
 - Bookmark ayat(no login)
 - Copy Link ayat
-- Share to WhastApp
+- Share ke WhastApp
 
 <br/>
 

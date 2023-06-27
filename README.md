@@ -29,13 +29,13 @@ Website ngaji-Quran adalah sebuah aplikasi mengaji al-quran berbasis web yang te
 ## Features
 
 - Pencarian Surat
-- Buka Ayat
-- Audio Murotal Tersedia 5 pilihan Qori/imam
-- Dark/Light Mode
+- Membuka Ayat
+- Audio Murotal 5 pilihan Suara Qori/imam
 - Like ayat(no login)
 - Bookmark ayat(no login)
 - Copy Link ayat
 - Share ke WhastApp
+- Dark/Light Mode
 
 <br/>
 

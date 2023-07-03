@@ -5,26 +5,30 @@ import { RootState, Audio, ayatSurat, detailSurat } from '@/interfaces'
 import {
   IconBookmark,
   IconChevronRight,
-  IconExternalLink,
+  // IconExternalLink,
   IconHeadphones,
   IconHeart,
+  IconLeaf,
   IconLink,
   IconShare,
 } from '@tabler/icons-react'
 import Link from 'next/link'
 import ScrollToTop from '@/components/ScrollToTop'
 import {useDispatch, useSelector} from 'react-redux'
-import { unsetModal, modalLoading } from '@/redux/actions/modal'
+import { unsetModal, modalLoading, modalTafsir } from '@/redux/actions/modal'
 import {
   addLike,
   removeLike,
   addBookmark,
   removeBookmark,
+  addBook,
+  removeBook,
 } from '@/redux/actions/store'
 import { useRouter } from 'next/navigation'
 import { WhatsappShareButton } from 'react-share'
 import PlayingAnimate from '@/components/PlayingAnimate'
 import LoadingCircleAnimate from '@/components/LoadingCircleAnimate'
+import ModalTafsir from '@/app/[nosurat]/tafsir/ModalTafsir'
 
 async function fetchData(nosurat: string) {
   const res = await fetch(`https://equran.id/api/v2${nosurat}`)
@@ -33,7 +37,7 @@ async function fetchData(nosurat: string) {
 }
 
 export default function Page({ params }: { params: { nosurat: string } }) {
-  const { like, bookmark } = useSelector((state: RootState) => state.store)
+  const { like, bookmark, book } = useSelector((state: RootState) => state.store)
   const { data, error } = useSWR(`/surat/${params.nosurat}`, fetchData)
   const [detail, setDetail] = React.useState<detailSurat | undefined>(undefined)
   const [ayats, setAyats] = React.useState<ayatSurat[]>([])
@@ -50,9 +54,9 @@ export default function Page({ params }: { params: { nosurat: string } }) {
   const dispatch = useDispatch()
   const router = useRouter()
 
-  React.useEffect(() => {
-    dispatch(unsetModal())
-  }, [dispatch])
+  // React.useEffect(() => {
+  //   dispatch(unsetModal())
+  // }, [dispatch])
 
   React.useEffect(() => {
     if (data) {
@@ -192,7 +196,7 @@ export default function Page({ params }: { params: { nosurat: string } }) {
     ${window.location.origin}/${params.nosurat}?ayat=${ayat}`
   }
 
-  if (!data) return <p>Loading...</p>
+  if (!data) return <p>Tunggu...</p>
   return (
     <div className="max-w-[1107px] h-max m-auto relative">
       <div className="bg-white p-[22px] rounded-[10px] text-center dark:bg-slate-700/50">
@@ -225,7 +229,7 @@ export default function Page({ params }: { params: { nosurat: string } }) {
               <option value="04">Ibrahim Al-Dossari</option>
               <option value="05">Misyari Rasyid Al-Afasi</option>
             </select>
-            <Link
+            {/* <Link
               href={`${params.nosurat}/tafsir`}
               className="flex justify-between items-center py-[7px] px-[14px] bg-[#f4f6f8] text-[var(--primary)] rounded-[10px] w-[194px] cursor-pointer dark:bg-slate-800 h-[40px]"
               onClick={() => {
@@ -236,7 +240,7 @@ export default function Page({ params }: { params: { nosurat: string } }) {
               }}>
               <p>Tafsir</p>
               <IconExternalLink className="w-[20px] h-[20px] stroke-[1.5]" />
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
@@ -329,7 +333,35 @@ export default function Page({ params }: { params: { nosurat: string } }) {
                   }
                 />
               )}
+
+              {book?.nomorSurat === detail?.nomor &&
+              book?.nomorAyat === res.nomorAyat ? (
+                <IconLeaf
+                  className="cursor-pointer fill-[#3f9659] text-[#3f9659]"
+                  onClick={() => {
+                      dispatch(removeBook())
+                    }
+                  }
+                />
+              ): (
+                <IconLeaf
+                className="cursor-pointer hover:text-[var(--primary)]"
+                onClick={() => {
+                  dispatch(addBook({
+                      nomorSurat: detail?.nomor,
+                      nomorAyat: res.nomorAyat,
+                      namaSurat: detail?.namaLatin,
+                      url: `/${params.nosurat}?ayat=${res.nomorAyat}`,
+                      timestamp: Math.floor(new Date().getTime() / 1000),
+                    })
+                  )
+                  dispatch(modalLoading(`Membuka Tafsir ${detail?.namaLatin} ayat ke ${res.nomorAyat}`))
+                  dispatch(modalTafsir(`${res.nomorAyat}`))
+                }}
+              />  
+              )}
               
+
               <IconLink
                 onClick={() => handleCopyLink(res.nomorAyat)}
                 className="cursor-pointer hover:text-[var(--primary)]"/>
@@ -364,6 +396,9 @@ export default function Page({ params }: { params: { nosurat: string } }) {
       </div>
       <audio src={audioPlay} typeof="audio/mp3" ref={audioRef} />
       <ScrollToTop />
+      <ModalTafsir params={{
+        nosurat: `${params.nosurat}`,
+      }} />
     </div>
   )
 }

@@ -5,6 +5,7 @@ import Decrypt from '@/utils/Decrypt'
 const initState: StateStore = {
     like: [],
     bookmark: null,
+    book: null,
   }
   
   const reduceStore = (
@@ -51,6 +52,22 @@ const initState: StateStore = {
           ...state,
           bookmark: null,
         }
+      case ActionType.ADD_BOOK:
+        return {
+          ...state,
+          book: {
+            nomorSurat: action.payload.nomorSurat,
+            nomorAyat: action.payload.nomorAyat,
+            namaSurat: action.payload.namaSurat,
+            url: action.payload.url,
+            timestamp: action.payload.timestamp,
+          },
+        }
+      case ActionType.REMOVE_BOOK:
+        return {
+          ...state,
+          book: null,
+        }
       case ActionType.RESTORE:
         const getData = localStorage.getItem('store')
         if (getData) {
@@ -60,6 +77,7 @@ const initState: StateStore = {
         return {
           like: [],
           bookmark: null,
+          book: null,
         }
       default:
         return state

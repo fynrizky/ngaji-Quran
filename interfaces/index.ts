@@ -7,7 +7,12 @@ export interface detailSurat {
   jumlahAyat: number
   tempatTurun: string
   arti: string
+  tafsir?: {
+    ayat: number
+    teks: string
+  }
 }
+
 
 export interface ayatSurat {
   nomorAyat: number
@@ -53,7 +58,13 @@ export interface ActionTheme {
     }
   }
 
-  export interface ActionModal {
+export interface ActionModalTafsir {
+    type: typeof ActionType.MODAL_TAFSIR_OPEN
+    payload: {
+      message: string
+    }
+  }
+export interface ActionModal {
     type: typeof ActionType.LOADING_OPEN
     payload: {
       message: string
@@ -69,6 +80,7 @@ export interface StateModal {
 export interface StateStore {
     like: Like[]
     bookmark: Like | null
+    book: Like | null
   }
 
 export interface StateTheme {

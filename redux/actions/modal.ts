@@ -6,6 +6,12 @@ export const modalLoading = (message?: string) => ({
     message: message,
   },
 })
+export const modalTafsir = (message?: string) => ({
+  type: ActionType.MODAL_TAFSIR_OPEN,
+  payload: {
+    message: message,
+  },
+})
 
 export const modalSorry = () => ({
   type: ActionType.MESSAGE_SORRY,

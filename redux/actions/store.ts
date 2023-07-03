@@ -47,6 +47,27 @@ export const removeBookmark = () => ({
   type: ActionType.REMOVE_BOOKMARK,
 })
 
+export const addBook = ({
+  nomorSurat,
+  nomorAyat,
+  namaSurat,
+  url,
+  timestamp,
+}: Like) => ({
+  type: ActionType.ADD_BOOK,
+  payload: {
+    nomorSurat,
+    nomorAyat,
+    namaSurat,
+    url,
+    timestamp,
+  },
+})
+
+export const removeBook = () => ({
+  type: ActionType.REMOVE_BOOK,
+})
+
 export const restore = () => ({
   type: ActionType.RESTORE,
 })

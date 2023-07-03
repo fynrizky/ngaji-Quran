@@ -42,7 +42,7 @@ export default function Page() {
             href={data.url as string}
             onClick={() => {
               window.scrollTo(0, 0)
-              dispatch(modalLoading(`proses membuka surat ${data.namaSurat}`))
+              dispatch(modalLoading(`Membuka Surat ${data.namaSurat}`))
             }}
             key={index}
             className="bg-white/50 backdrop-blur-sm rounded-[10px] p-5 sm:p-6 flex justify-between items-center dark:bg-slate-700/50 hover:shadow-md hover:shadow-gray-200 dark:hover:shadow-slate-700 transition-all cursor-pointer">

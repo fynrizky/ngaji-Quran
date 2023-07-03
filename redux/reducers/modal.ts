@@ -1,4 +1,4 @@
-import { ActionModal, StateModal } from '@/interfaces'
+import { ActionModalTafsir, ActionModal, StateModal} from '@/interfaces'
 import ActionType from '../actionType'
 
 const initState: StateModal = {
@@ -7,15 +7,22 @@ const initState: StateModal = {
   message: null,
 }
 
+
 const reducerModal = (
   state: StateModal = initState,
-  action: ActionModal
+  action: ActionModal | ActionModalTafsir
 ): StateModal => {
-  switch (action.type) {
+  switch (action?.type) {
     case ActionType.LOADING_OPEN:
       return {
         isOpen: true,
         type: 'loading',
+        message: action.payload.message,
+      }
+    case ActionType.MODAL_TAFSIR_OPEN:
+      return {
+        isOpen: true,
+        type: 'tafsir',
         message: action.payload.message,
       }
     case ActionType.MESSAGE_SORRY:
@@ -30,7 +37,13 @@ const reducerModal = (
         isOpen: false,
         type: null,
       }
-    default:
+
+
+
+
+
+
+      default:
       return state
   }
 }

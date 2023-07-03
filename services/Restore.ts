@@ -11,5 +11,6 @@ export default function Restore(): StateStore | null {
   return {
     like: [],
     bookmark: null,
+    book: null
   }
 }

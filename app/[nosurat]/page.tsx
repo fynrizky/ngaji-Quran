@@ -196,7 +196,7 @@ export default function Page({ params }: { params: { nosurat: string } }) {
     ${window.location.origin}/${params.nosurat}?ayat=${ayat}`
   }
 
-  if (!data) return <p>Wait....</p>
+  if (!data) return <p>Wait...</p>
   return (
     <div className="max-w-[1107px] h-max m-auto relative">
       <div className="bg-white p-[22px] rounded-[10px] text-center dark:bg-slate-700/50">

@@ -58,14 +58,13 @@ export default function ModalTafsir({params} : {params : {nosurat: string}}) {
                          leave="ease-in duration-200"
                          leaveFrom="opacity-100 scale-100"
                          leaveTo="opacity-0 scale-95">
-                            <Dialog.Panel 
-                            onClick={() => {
-                                dispatch(unsetModal())
-                                dispatch(removeBook())
-                            }}
-                            className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white dark:bg-slate-800 p-4 text-left align-middle shadow-xl transition-all">
+                            <Dialog.Panel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white dark:bg-slate-800 p-4 text-left align-middle shadow-xl transition-all">
                                 <Dialog.Title 
-                                as="div" 
+                                as="div"
+                                onClick={() => {
+                                    dispatch(unsetModal())
+                                    dispatch(removeBook())
+                                }} 
                                 className="arab text-[24px] flex justify-center">
                                     {detail?.nama}
                                 </Dialog.Title>

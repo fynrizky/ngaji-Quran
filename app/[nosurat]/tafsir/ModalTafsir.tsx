@@ -28,7 +28,7 @@ export default function ModalTafsir({params} : {params : {nosurat: string}}) {
         
     },[data, message])
 
-    if (error) return <div>Failed to load data</div>
+    if (error) return <div>Failed to load data.. </div>
     
     return (
         <Transition appear show={isOpen && type === 'tafsir'} as={React.Fragment}>
@@ -85,6 +85,7 @@ export default function ModalTafsir({params} : {params : {nosurat: string}}) {
                                             )
                                         }
                                         return null
+                                        
                                     })}
                                 </div>
 

@@ -13,15 +13,15 @@
 
 ## Introduction
 
-Website ngaji-Quran adalah sebuah aplikasi mengaji al-quran berbasis web yang tersedia fitur untuk membaca, mendengarkan murotal, penanda ayat, dan share ayat Alquran ke media sosial seperti WA atau bisa juga meng-copy link dari ayat...
+Website ngaji-Quran adalah sebuah aplikasi website untuk mengaji berbasis web yang tersedia fitur untuk membaca, mendengarkan murotal, penanda ayat, tafsir per ayat, dan share ayat Alquran ke media sosial seperti WA atau bisa juga meng-copy link ayat...
 
 <br/>
 
 ## Technology 
 
-- Menggunakan Nextjs 13.4.3
+- Menggunakan Nextjs 13
 - Menggunakan Redux
-- Menggunakan Tailwind CSS
+- Menggunakan Tailwind/CSS
 - Menggunakan Typescript
 
 <br/>
@@ -33,13 +33,15 @@ Website ngaji-Quran adalah sebuah aplikasi mengaji al-quran berbasis web yang te
 - Audio Murotal 5 pilihan Suara Qori/imam
 - Like ayat(no login)
 - Bookmark ayat(no login)
+- Book Tafsir per Ayat(no login)
 - Copy Link ayat
 - Share ke WhastApp
 - Dark/Light Mode
+- Responsive Website
 
 <br/>
 
 ## Links
 
-- Web : [fynrizky-ngaji-quran.vercel.app](https://www.fynrizky-ngaji-quran.vercel.app)
+- Website : [fynrizky-ngaji-quran.vercel.app](https://www.fynrizky-ngaji-quran.vercel.app)
 - Repo : [https://github.com/fynrizky/ngaji-Quran](https://github.com/fynrizky/ngaji-Quran)

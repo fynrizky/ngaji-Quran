@@ -354,9 +354,15 @@ export default function Page({ params }: { params: { nosurat: string } }) {
                       url: `/${params.nosurat}?ayat=${res.nomorAyat}`,
                       timestamp: Math.floor(new Date().getTime() / 1000),
                     })
-                  )
-                  dispatch(modalLoading(`Membuka Tafsir ${detail?.namaLatin} ayat ke ${res.nomorAyat}`))
-                  dispatch(modalTafsir(`${res.nomorAyat}`))
+                    
+                )
+                dispatch(modalLoading(`Membuka Tafsir ${detail?.namaLatin} ayat ke ${res.nomorAyat}`))
+                dispatch(modalTafsir(`${res.nomorAyat}`))
+                
+                if (ayatRefs.current[res.nomorAyat - 1]){
+                    dispatch(modalLoading(`Membuka Tafsir ${detail?.namaLatin} ayat ke ${res.nomorAyat}`))
+                    dispatch(modalTafsir(`${res.nomorAyat}`))
+                  }
                 }}
               />  
               )}

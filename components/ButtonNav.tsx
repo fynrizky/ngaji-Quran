@@ -95,7 +95,26 @@ export default function ButtonNav() {
               }
             </Menu.Item>
             <Menu.Item>
-              {({ active }) => (
+              {({ active }) => 
+              parseInt(PathLocation()) === book?.nomorSurat ? (
+                <div
+                  className={`${
+                    active ? 'bg-gray-200 dark:bg-gray-800' : ''
+                  } group flex w-full items-center rounded-md px-2 py-2 text-sm cursor-pointer`}
+                  onClick={() => {
+                    route.push('/')
+                    book &&
+                      dispatch(
+                        modalLoading(
+                          `Membuka Tafsir ${book?.namaSurat} ayat ${book?.nomorAyat}`
+                        )
+                      )
+                    window.location.href = `${window.location.origin}${book?.url}`
+                  }}>
+                  <IconLeaf className="mr-2 h-5 w-5 fill-[#3f9659] text-[#3f9659]" />
+                  Tafsir
+                </div>
+              ) : (
                 <Link
                   href={book ? (book.url as string) : ''}
                   className={`${

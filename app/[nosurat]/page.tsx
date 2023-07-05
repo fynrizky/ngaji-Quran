@@ -358,6 +358,9 @@ export default function Page({ params }: { params: { nosurat: string } }) {
                 )
                 dispatch(modalLoading(`Membuka Tafsir ${detail?.namaLatin} ayat ke ${res.nomorAyat}`))
                 dispatch(modalTafsir(`${res.nomorAyat}`))
+                
+                scrollToAyat(res.nomorAyat) && 
+                dispatch(modalTafsir(`${res.nomorAyat}`))
                 }}
               />  
               )}

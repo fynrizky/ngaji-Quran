@@ -73,20 +73,20 @@ export default function ModalTafsir({params} : {params : {nosurat: string}}) {
                                     {Array.isArray(detail?.tafsir) &&
                                         detail?.tafsir?.map((tafsir) => {
                                             if (tafsir.ayat === selectedAyat) {
-                                                return (
-                                            <div key={tafsir.ayat} className="bg-white/50 backdrop-blur-sm rounded-l-[18px] p-4 sm:p-5 flex flex-col gap-2 dark:bg-slate-700/50">
-                                                <p className="text-[24px] font-semibold text-gray-400">{detail?.namaLatin}</p>
-                                                <p className="text-[16px] font-semibold text-gray-400">
-                                                {detail?.tempatTurun} • {detail?.arti} • {detail?.jumlahAyat} Ayat
-                                                </p>
-                                                <p className="text-[14px] font-semibold text-gray-400">Tafsir ~ Surat Ke {detail?.nomor} : Ayat ke {tafsir.ayat}</p>
-                                                <p className="text-sm font-YatraOne text-gray-400 text-justify whitespace-pre-wrap my-2">{tafsir.teks}</p>
-                                            </div>
-                                            )
-                                        }
-                                        return null
-                                        
-                                    })}
+                                            return (
+                                                <div key={tafsir.ayat} className="bg-white/50 backdrop-blur-sm rounded-l-[18px] p-4 sm:p-5 flex flex-col gap-2 dark:bg-slate-700/50">
+                                                    <p className="text-[24px] font-semibold text-gray-400">{detail?.namaLatin}</p>
+                                                    <p className="text-[16px] font-semibold text-gray-400">
+                                                    {detail?.tempatTurun} • {detail?.arti} • {detail?.jumlahAyat} Ayat
+                                                    </p>
+                                                    <p className="text-[14px] font-semibold text-gray-400">Tafsir ~ Surat Ke {detail?.nomor} : Ayat ke {tafsir.ayat}</p>
+                                                    <p className="text-sm font-YatraOne text-gray-400 text-justify whitespace-pre-wrap my-2">{tafsir.teks}</p>
+                                                </div>
+                                                )
+                                            }
+                                            return null    
+                                        })
+                                    }
                                 </div>
 
                             </Dialog.Panel>

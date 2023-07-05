@@ -277,7 +277,7 @@ export default function Page({ params }: { params: { nosurat: string } }) {
             <p className="font-semibold text-[14px] font-Quicksand">
               {res.teksIndonesia}
             </p>
-            <div className="flex pt-[15px] px-[15px] mt-[15px] gap-[25px] sm:gap-[40px] flex-wrap border-t-[1.5px] border-t-[#f4f4f4] text-[#A5BCC6] relative">
+            <div className="flex pt-[15px] px-[15px] mt-[15px] gap-[20px] sm:gap-[30px] flex-wrap border-t-[1.5px] border-t-[#f4f4f4] text-[#A5BCC6] relative">
               {like.filter(
                 data =>
                   data.nomorSurat === detail?.nomor &&

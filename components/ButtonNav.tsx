@@ -106,10 +106,10 @@ export default function ButtonNav() {
                     book &&
                       dispatch(
                         modalLoading(
-                          `Membuka Tafsir ${book?.namaSurat} ayat ${book?.nomorAyat}`
+                          `Membuka Tafsir ${book.namaSurat} ayat ${book.nomorAyat}`
                         )
                       )
-                    window.location.href = `${window.location.origin}${book?.url}`
+                    window.location.href = `${window.location.origin}${book.url}`
                   }}>
                   <IconLeaf className="mr-2 h-5 w-5 fill-[#3f9659] text-[#3f9659]" />
                   Tafsir
@@ -122,7 +122,12 @@ export default function ButtonNav() {
                   } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                   onClick={() => {
                     window.scrollTo(0, 0)
-                    dispatch(modalLoading(`Membuka Tafsir ${book?.namaSurat} ayat ${book?.nomorAyat}`))
+                    book &&
+                    dispatch(
+                      modalLoading(
+                        `Membuka Tafsir ${book?.namaSurat} ayat ${book?.nomorAyat}`
+                      )
+                    )
                   }}>
                   <IconLeaf className="mr-2 h-5 w-5 fill-[#3f9659] text-[#3f9659]" />
                   Tafsir

@@ -3,7 +3,7 @@ import * as React from 'react'
 import { RootState } from '@/interfaces'
 import { useRouter } from 'next/navigation'
 import { Menu, Transition } from '@headlessui/react'
-import { IconHeartFilled, IconBookmark } from '@tabler/icons-react'
+import { IconHeartFilled, IconBookmark, IconLeaf } from '@tabler/icons-react'
 import { Fragment } from 'react'
 import { modalLoading, unsetModal } from '@/redux/actions/modal'
 import { useDispatch, useSelector } from 'react-redux'
@@ -13,7 +13,7 @@ import PathLocation from '@/utils/PathLoacation'
 
 export default function ButtonNav() {
   const dispatch = useDispatch()
-  const { bookmark } = useSelector((state: RootState) => state.store)
+  const { bookmark, book } = useSelector((state: RootState) => state.store)
   const route = useRouter()
 
   React.useEffect(() => {
@@ -84,7 +84,7 @@ export default function ButtonNav() {
                       bookmark &&
                         dispatch(
                           modalLoading(
-                            `proses membuka surat ${bookmark.namaSurat} ayat ${bookmark.nomorAyat}`
+                            `proses membuka surat ${bookmark?.namaSurat} ayat ${bookmark?.nomorAyat}`
                           )
                         )
                     }}>
@@ -93,6 +93,22 @@ export default function ButtonNav() {
                   </Link>
                 )
               }
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <Link
+                  href={book ? (book.url as string) : ''}
+                  className={`${
+                    active ? 'bg-gray-200 dark:bg-gray-800' : ''
+                  } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                  onClick={() => {
+                    window.scrollTo(0, 0)
+                    dispatch(modalLoading(`Membuka Tafsir ${book?.namaSurat} ayat ${book?.nomorAyat}`))
+                  }}>
+                  <IconLeaf className="mr-2 h-5 w-5 fill-[#3f9659] text-[#3f9659]" />
+                  Tafsir
+                </Link>
+              )}
             </Menu.Item>
           </div>
         </Menu.Items>

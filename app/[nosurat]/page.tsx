@@ -86,7 +86,10 @@ export default function Page({ params }: { params: { nosurat: string } }) {
 
   React.useEffect(() => {
     scrollToAyat(bukaAyat)
-  }, [bukaAyat])
+    if(book?.url && book?.nomorAyat){
+      dispatch(modalTafsir(`${book?.nomorAyat}`))
+    }
+  }, [bukaAyat, dispatch])
 
   React.useEffect(() => {
     !isPlaying && setAyatPlay(0)
@@ -359,8 +362,6 @@ export default function Page({ params }: { params: { nosurat: string } }) {
                 dispatch(modalLoading(`Membuka Tafsir ${detail?.namaLatin} ayat ke ${res.nomorAyat}`))
                 dispatch(modalTafsir(`${res.nomorAyat}`))
                 
-                scrollToAyat(res.nomorAyat) && 
-                dispatch(modalTafsir(`${res.nomorAyat}`))
                 }}
               />  
               )}

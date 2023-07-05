@@ -89,7 +89,7 @@ export default function Page({ params }: { params: { nosurat: string } }) {
     if(book?.url){
       dispatch(modalTafsir(`${book?.nomorAyat}`))
     }
-  },[bukaAyat, dispatch])
+  },[bukaAyat, dispatch, book?.url, book?.nomorAyat])
 
   React.useEffect(() => {
     !isPlaying && setAyatPlay(0)

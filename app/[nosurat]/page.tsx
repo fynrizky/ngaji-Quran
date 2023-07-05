@@ -89,7 +89,7 @@ export default function Page({ params }: { params: { nosurat: string } }) {
   }, [bukaAyat])
 
   React.useEffect(() => {
-    if(book?.url){
+    if(book?.nomorAyat){
       dispatch(modalTafsir(`${book?.nomorAyat}`))
     }
   },[dispatch])

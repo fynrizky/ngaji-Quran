@@ -43,5 +43,5 @@ Website ngaji-Quran adalah sebuah aplikasi website untuk mengaji berbasis web ya
 
 ## Links
 
-- Website : [fynrizky-ngaji-quran.vercel.app](https://www.fynrizky-ngaji-quran.vercel.app)
+- Website : [fynrizky-ngaji-quran.vercel.app](https://fynrizky-ngaji-quran.vercel.app)
 - Repo : [https://github.com/fynrizky/ngaji-Quran](https://github.com/fynrizky/ngaji-Quran)

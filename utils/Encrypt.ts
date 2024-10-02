@@ -8,4 +8,5 @@ const Encrypt = (data: StateStore): string => {
   ).toString()
 }
 
+
 export default Encrypt

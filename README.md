@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://fynrizky-ngaji-quran.vercel.app">
+  <a href="https://ngaji-quran.vercel.app">
     <img src="https://raw.githubusercontent.com/fynrizky/ngaji-Quran/master/assets/logo_ku.png" alt="Logo" width="300">
   </a>
   <h2 style="font-size:30px;" align="center"><strong>Quran~~Ku</strong></h2>
@@ -43,5 +43,5 @@ Website Quran~~Ku adalah sebuah aplikasi website untuk mengaji mandiri berbasis 
 
 ## Links
 
-- Website : [fynrizky-ngaji-quran.vercel.app](https://www.fynrizky-ngaji-quran.vercel.app)
+- Website : [ngaji-quran.vercel.app](https://ngaji-quran.vercel.app)
 - Repo : [https://github.com/fynrizky/ngaji-Quran](https://github.com/fynrizky/ngaji-Quran)

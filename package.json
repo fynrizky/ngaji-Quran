@@ -34,7 +34,6 @@
     "sass": "^1.60.0",
     "swiper": "^9.2.3",
     "swr": "^2.1.5",
-    "swr": "^2.1.5",
     "typescript": "5.0.2"
   },
   "devDependencies": {

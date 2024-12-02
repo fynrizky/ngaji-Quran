@@ -57,7 +57,7 @@ const Navbar = () => {
             className="cursor-pointer"
           />
           <h1 className="text-[22px] sm:text-[25px] font-bold italic text-[var(--primary)] drop-shadow-md ">
-           ngaji-Quran
+           Quran~~Ku
           </h1>
         </Link>
         <div className="flex items-center gap-3 sm:gap-5">

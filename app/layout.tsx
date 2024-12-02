@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
      <head>
-        <title>ngaji-Quran</title>
+        <title>Quran~~Ku</title>
         <meta name="description" content="Create By Rizky Fiyannur" />
         <meta name="google" content="notranslate" />
       </head>

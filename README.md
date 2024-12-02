@@ -1,8 +1,8 @@
 <div align="center">
-  <a href="https://www.indoquran.my.id">
+  <a href="https://fynrizky-ngaji-quran.vercel.app">
     <img src="https://raw.githubusercontent.com/fynrizky/ngaji-Quran/master/assets/logo_ku.png" alt="Logo" width="300">
   </a>
-  <h2 style="font-size:30px;" align="center"><strong>ngaji-Quran</strong></h2>
+  <h2 style="font-size:30px;" align="center"><strong>Quran~~Ku</strong></h2>
   <p align="center">
     <a href="https://github.com/fynrizky/ngaji-Quran/issues">Report Bug</a>
     ·
@@ -13,7 +13,7 @@
 
 ## Introduction
 
-Website ngaji-Quran adalah sebuah aplikasi website untuk mengaji berbasis web yang tersedia fitur untuk membaca, mendengarkan murotal, penanda ayat, tafsir per ayat, dan share ayat Alquran ke media sosial seperti WA atau bisa juga meng-copy link ayat...
+Website Quran~~Ku adalah sebuah aplikasi website untuk mengaji mandiri berbasis web yang tersedia fitur untuk membaca, mendengarkan murotal, penanda ayat, tafsir per ayat, dan share ayat Alquran ke media sosial seperti WA atau bisa juga meng-copy link ayat...
 
 <br/>
 

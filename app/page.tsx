@@ -35,7 +35,6 @@ export default function Page () {
     dispatch(unsetModal())
   }, [dispatch])
 
-
   function filterSurat(search: string, suratList: ListSurat[]) {
     const filteredList = suratList.filter(
       surat =>

@@ -16,7 +16,7 @@ export default function Page () {
 
   const { data: listSurat, error } = useSWR<ListSurat[]>(
     `https://equran.id/api/v2/surat`,
-    async url => {
+    async (url:string) => {
       const response = await fetch(url)
       const data = await response.json()
       return data.data

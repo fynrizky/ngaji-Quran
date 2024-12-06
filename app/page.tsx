@@ -55,7 +55,7 @@ export default function Page () {
           value={search}
           onChange={e => setSearch(e.target.value)}
           type="search"
-          placeholder="Cari surat"
+          placeholder="Search Surah"
           className="w-full h-full bg-transparent outline-none pl-8 sm:pl-10 placeholder-gray-300 font-semibold placeholder:font-normal placeholder:text-[14px] sm:placeholder:text-[18px]"
         />
       </div>

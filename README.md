@@ -43,5 +43,5 @@ Website Quran~~Ku adalah sebuah aplikasi website untuk mengaji mandiri. Berbasis
 
 ## Links
 
-- Website : [ngaji-quran.vercel.app](https://fynrizky-quranku.vercel.app)
+- Website : [fynrizky-quranku.vercel.app](https://fynrizky-quranku.vercel.app)
 - Repo : [https://github.com/fynrizky/ngaji-Quran](https://github.com/fynrizky/ngaji-Quran)

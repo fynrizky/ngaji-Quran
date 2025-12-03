@@ -106,7 +106,7 @@ export default function ButtonNav() {
                     book &&
                       dispatch(
                         modalLoading(
-                          `Membuka Tafsir ${book.namaSurat} ayat ${book.nomorAyat}`
+                          `Menelusuri Tafsir Terakhir Surah ${book.namaSurat} ayat ${book.nomorAyat}`
                         )
                       )
                     window.location.href = `${window.location.origin}${book.url}`
@@ -125,7 +125,7 @@ export default function ButtonNav() {
                     book &&
                     dispatch(
                       modalLoading(
-                        `Membuka Tafsir ${book?.namaSurat} ayat ${book?.nomorAyat}`
+                        `Menelusuri Tafsir Tarakhir Surah ${book?.namaSurat} ayat ${book?.nomorAyat}`
                       )
                     )
                   }}>

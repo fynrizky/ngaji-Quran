@@ -85,11 +85,15 @@ export default function Page({ params }: { params: { nosurat: string } }) {
   }, [data])
 
   React.useEffect(() => {
-    scrollToAyat(book?.nomorAyat ? book.nomorAyat : bukaAyat)
-    if(book?.url){
-      dispatch(modalTafsir(`${book?.nomorAyat}`))
-    }
-  },[bukaAyat, dispatch, book?.url, book?.nomorAyat])
+    scrollToAyat(book?.nomorAyat ? book.nomorAyat : bukaAyat )
+    // if(book?.url){
+    //   dispatch(modalTafsir(`${book?.nomorAyat}`))
+    // }
+  },[
+    bukaAyat, 
+    // dispatch, 
+    // book?.url, 
+    book?.nomorAyat] )
 
   React.useEffect(() => {
     !isPlaying && setAyatPlay(0)

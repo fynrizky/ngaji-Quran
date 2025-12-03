@@ -31,7 +31,7 @@
     "react-share": "^4.4.1",
     "redux": "^4.2.1",
     "redux-devtools-extension": "^2.13.9",
-    "sass": "^1.82.0",
+    "sass": "^1.83.0",
     "swiper": "^9.4.1",
     "swr": "^2.2.5",
     "typescript": "5.0.2"
